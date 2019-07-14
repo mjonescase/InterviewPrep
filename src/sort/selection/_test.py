@@ -18,10 +18,8 @@ def test_find_smallest_index_happy():
     array index with the smallest value with a
     straightforward, small, typical example input.
     """
-    assert_that(
-        find_smallest_index([4, 7, 3, 9]),
-        equal_to(2)
-    )
+    assert_that(find_smallest_index([4, 7, 3, 9]), equal_to(2))
+
 
 def test_find_smallest_index_non_decreasing():
     """
@@ -29,12 +27,11 @@ def test_find_smallest_index_non_decreasing():
     by going with the first index of the value
     that it finds.
     """
-    assert_that(
-        find_smallest_index([4, 7, 3, 3, 9]),
-        equal_to(2)
-    )
+    assert_that(find_smallest_index([4, 7, 3, 3, 9]), equal_to(2))
+
 
 def test_find_smallest_index_handles_all_types():
     assert_that(
-        find_smallest_index([4, 4.0, Decimal("4.0"), Decimal(4), Decimal(4.0)]), equal_to(0)
+        find_smallest_index([4, 4.0, Decimal("4.0"), Decimal(4), Decimal(4.0)]),
+        equal_to(0),
     )

@@ -16,4 +16,3 @@ def find_smallest_index(arr: typing.List[Number]) -> int:
             smallest_index = index
 
     return smallest_index
-    
