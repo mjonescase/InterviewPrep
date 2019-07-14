@@ -8,3 +8,7 @@ Install Dependencies:
 Run Unit Tests:
 
 `poetry run pytest`
+
+Fix Style Issues (that will break the build if you push them):
+
+`poetry run black src`

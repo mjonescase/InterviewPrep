@@ -2,14 +2,13 @@ from hamcrest import assert_that, equal_to, none
 
 from .main import find_smallest_index
 
+
 def test_find_smallest_index_empty():
     """
     Document the behavior when an empty list is sent in.
     """
-    assert_that(
-        find_smallest_index([]),
-        none()
-    )
+    assert_that(find_smallest_index([]), none())
+
 
 # def test_find_smallest_index_happy():
 #     """
