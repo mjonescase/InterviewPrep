@@ -2,7 +2,7 @@ from decimal import Decimal
 
 from hamcrest import assert_that, equal_to, none
 
-from .main import find_smallest_index
+from .main import find_smallest_index, sort
 
 
 def test_find_smallest_index_empty():
@@ -31,7 +31,19 @@ def test_find_smallest_index_non_decreasing():
 
 
 def test_find_smallest_index_handles_all_types():
+    """
+    Make sure comparing all the numeric types in Python
+    works as expected.
+    """
     assert_that(
         find_smallest_index([4, 4.0, Decimal("4.0"), Decimal(4), Decimal(4.0)]),
         equal_to(0),
     )
+
+
+def test_sort_empty_list():
+    """
+    Make sure that, when sent an empty list,
+    an empty list is returned.
+    """
+    assert_that(sort([]), equal_to([]))

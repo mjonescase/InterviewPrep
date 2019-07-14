@@ -4,6 +4,15 @@ import typing
 Number = typing.Union[int, float, "decimal.Decimal"]
 
 
+def sort(arr: typing.List[Number]) -> typing.List[Number]:
+    """
+    Sorts a list of numbers, using the Selection Sort algorithm.
+
+    :param arr: The list to sort.
+    """
+    return []
+
+
 def find_smallest_index(arr: typing.List[Number]) -> int:
     """
     :param arr: Find the smallest in this list
