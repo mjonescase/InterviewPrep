@@ -3,12 +3,6 @@ version: 2.1
 orbs:
   ms_python: medasync/python@0.0.6
 
-jobs:
-  unit_test:
-    steps:
-      - ms_python/run_pytest:
-          source_root: src
-
 workflows:
   version: 2
   lint_and_test:
@@ -20,8 +14,12 @@ workflows:
           source_root: src
           requires:
             - ms_python/prepare
-      - unit_test:
-          name: unit_test
+      - ms_python/test:
+          name: test
+          migrate_db: false
+          test_steps:
+            - ms_python/run_pytest:
+                source_root: src
           requires:
-            - ms_python/prepare
+            ms_python/prepare
 
