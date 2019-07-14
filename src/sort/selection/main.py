@@ -10,7 +10,7 @@ def sort(arr: typing.List[Number]) -> typing.List[Number]:
 
     :param arr: The list to sort.
     """
-    return []
+    return arr
 
 
 def find_smallest_index(arr: typing.List[Number]) -> int:

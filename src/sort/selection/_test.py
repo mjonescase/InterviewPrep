@@ -47,3 +47,10 @@ def test_sort_empty_list():
     an empty list is returned.
     """
     assert_that(sort([]), equal_to([]))
+
+
+def test_sort_already_sorted():
+    """
+    Handle a simple case.
+    """
+    assert_that(sort([2, 3, 5, 7]), equal_to([2, 3, 5, 7]))
