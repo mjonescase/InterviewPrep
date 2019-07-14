@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "googleprep"
+name = "interviewprep"
 version = "0.1.0"
 description = ""
 authors = ["Mike Jones <mwj12@case.edu>"]
