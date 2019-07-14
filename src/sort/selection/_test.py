@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from hamcrest import assert_that, equal_to, none
 
 from .main import find_smallest_index
@@ -30,4 +32,9 @@ def test_find_smallest_index_non_decreasing():
     assert_that(
         find_smallest_index([4, 7, 3, 3, 9]),
         equal_to(2)
+    )
+
+def test_find_smallest_index_handles_all_types():
+    assert_that(
+        find_smallest_index([4, 4.0, Decimal("4.0"), Decimal(4), Decimal(4.0)]), equal_to(0)
     )
