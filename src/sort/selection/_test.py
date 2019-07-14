@@ -20,3 +20,14 @@ def test_find_smallest_index_happy():
         find_smallest_index([4, 7, 3, 9]),
         equal_to(2)
     )
+
+def test_find_smallest_index_non_decreasing():
+    """
+    Show that `find_smallest_index` deals with ties
+    by going with the first index of the value
+    that it finds.
+    """
+    assert_that(
+        find_smallest_index([4, 7, 3, 3, 9]),
+        equal_to(2)
+    )
