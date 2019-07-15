@@ -1,5 +1,5 @@
 from decimal import Decimal
-from unittest.mock import call, Mock, patch
+from unittest.mock import Mock, call, patch
 
 from hamcrest import assert_that, equal_to, none
 
