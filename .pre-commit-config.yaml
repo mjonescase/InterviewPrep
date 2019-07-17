@@ -1,0 +1,22 @@
+repos:
+  - repo: local
+    hooks:
+      - id: black
+        name: black
+        description: runs black in poetry's venv and re-adds any changed files
+        entry: poetry run python run_cli_command.py
+        types: [python]
+        language: system
+        args:
+          - "--auto-add"
+          - black
+      - id: isort
+        name: isort
+        description: runs isort in poetry's venv and re-adds any changed files
+        entry: poetry run python run_cli_command.py
+        types: [python]
+        language: system
+        args:
+          - "--auto-add"
+          - isort
+          - "-ac"
