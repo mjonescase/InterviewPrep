@@ -1,7 +1,7 @@
 import copy
+import typing
 from decimal import Decimal
 from unittest.mock import Mock, call, patch
-import typing
 
 from hamcrest import assert_that, equal_to, none
 
