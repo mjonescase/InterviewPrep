@@ -68,17 +68,30 @@ def test_sort_already_sorted():
 
 
 def test_already_sorted_calls_helper():
-    _test_sort_calls_helper(0, [*range(5)], [*range(5)])
+    initial_list = [*range(5)]
+    _test_sort_calls_helper(
+        0,
+        initial_list,
+        initial_list,
+        [call(initial_list[i:]) for i in range(len(initial_list) - 1)],
+    )
 
 
 def test_first_becomes_last_calls_helper():
-    _test_sort_calls_helper(1, [*range(5)], [*range(1, 5), 0])
+    initial_list = [*range(5)]
+    _test_sort_calls_helper(
+        1,
+        initial_list,
+        [*range(1, 5), 0],
+        [call([0, *initial_list[i:]]) for i in range(2, len(initial_list))],
+    )
 
 
 def _test_sort_calls_helper(
     smallest_index: int,
     initial_list: typing.List[main.Number],
     expected_result: typing.List[main.Number],
+    calls: typing.List["call"],
 ):
     """
     Make sure `sort` calls `find_smallest_index`
@@ -100,8 +113,6 @@ def _test_sort_calls_helper(
         main.find_smallest_index = Mock(return_value=smallest_index)
         main.sort(initial_list)
         assert_that(initial_list, equal_to(expected_result))
-        main.find_smallest_index.assert_has_calls(
-            [call(initial_list_copy[i:]) for i in range(len(initial_list_copy) - 1)]
-        )
+        main.find_smallest_index.assert_has_calls(calls)
     finally:
         main.find_smallest_index = original_find_smallest
