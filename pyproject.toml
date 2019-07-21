@@ -6,6 +6,9 @@ authors = ["Mike Jones <mwj12@case.edu>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
+aiohttp = "^3.5"
+cchardet = "^2.1"
+aiodns = "^2.0"
 
 [tool.poetry.dev-dependencies]
 ipdb = "^0.12.0"
