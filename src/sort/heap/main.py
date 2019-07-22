@@ -24,7 +24,7 @@ def ith_child(index: int, ary: int, ith: int) -> int:
     return ary * index + ith + 1
 
 
-def max_heapify(heap: typing.List[int], index: int) -> None:
+def max_heapify(heap: typing.List[int], index: int, heap_size: int) -> None:
     """
     Modifies `heap` in place
 
@@ -33,3 +33,6 @@ def max_heapify(heap: typing.List[int], index: int) -> None:
     """
     assert index < len(heap)
     assert index >= 0
+    ary = 2
+    left_child_index = ith_child(index, ary, 0)
+    right_child_index = ith_child(index, ary, 1)
