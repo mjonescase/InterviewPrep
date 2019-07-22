@@ -9,3 +9,7 @@ def test_parent_index_lt_0():
 
 def test_parent_ary_lt_0():
     assert_that(calling(main.parent).with_args(3, -3), raises(AssertionError))
+
+
+def test_parent_happy():
+    assert_that(main.parent(1, 2), equal_to(0))
