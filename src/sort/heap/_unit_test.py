@@ -28,3 +28,7 @@ def test_ith_child_ith_lt_0():
     assert_that(
         calling(main.ith_child).with_args(0, MagicMock(), -1), raises(AssertionError)
     )
+
+
+def test_ith_child_ith_gte_ary():
+    assert_that(calling(main.ith_child).with_args(0, 2, 2), raises(AssertionError))
