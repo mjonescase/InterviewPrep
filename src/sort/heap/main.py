@@ -32,3 +32,4 @@ def max_heapify(heap: typing.List[int], index: int) -> None:
     :param index: 
     """
     assert index < len(heap)
+    assert index >= 0

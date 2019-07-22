@@ -44,3 +44,7 @@ def test_ith_child_happy():
 
 def test_max_heapify_index_gte_heap_length():
     assert_that(calling(main.max_heapify).with_args([], 0), raises(AssertionError))
+
+
+def test_max_heapify_index_lt_0():
+    assert_that(calling(main.max_heapify).with_args([], -1), raises(AssertionError))
