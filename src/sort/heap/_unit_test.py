@@ -36,3 +36,7 @@ def test_ith_child_ith_gte_ary():
 
 def test_ith_child_ary_lte_1():
     assert_that(calling(main.ith_child).with_args(0, 1, 0), raises(AssertionError))
+
+
+def test_ith_child_happy():
+    assert_that(main.ith_child(0, 2, 1), equal_to(2))
