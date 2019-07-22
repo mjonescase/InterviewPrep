@@ -40,3 +40,7 @@ def test_ith_child_ary_lte_1():
 
 def test_ith_child_happy():
     assert_that(main.ith_child(0, 2, 1), equal_to(2))
+
+
+def test_max_heapify_index_gte_heap_length():
+    assert_that(calling(main.max_heapify).with_args([], 0), raises(AssertionError))

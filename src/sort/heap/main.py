@@ -27,4 +27,8 @@ def ith_child(index: int, ary: int, ith: int) -> int:
 def max_heapify(heap: typing.List[int], index: int) -> None:
     """
     Modifies `heap` in place
+
+    :param heap: A binary heap
+    :param index: 
     """
+    assert index < len(heap)
