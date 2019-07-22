@@ -22,3 +22,9 @@ def test_ith_child_index_lt_0():
         calling(main.ith_child).with_args(-1, MagicMock(), MagicMock()),
         raises(AssertionError),
     )
+
+
+def test_ith_child_ith_lt_0():
+    assert_that(
+        calling(main.ith_child).with_args(0, MagicMock(), -1), raises(AssertionError)
+    )
