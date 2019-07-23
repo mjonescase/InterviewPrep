@@ -82,3 +82,9 @@ def test_heapsort_works():
     input_value = [5, 3, 17, 10, 84, 19, 6, 22, 9]
     main.sort(input_value)
     assert_that(input_value, equal_to([3, 5, 6, 9, 10, 17, 19, 22, 84]))
+
+
+def test_heapsort_empty_array():
+    input_value = []
+    main.sort(input_value)
+    assert_that(input_value, equal_to([]))

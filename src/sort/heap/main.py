@@ -60,6 +60,9 @@ def build_max_heap(arr: typing.List[int]) -> None:
 
 
 def sort(arr: typing.List[int]) -> None:
+    if not arr:
+        return
+
     heap_size = len(arr)
     build_max_heap(arr)
     for i in range(len(arr) - 1, 0, -1):
