@@ -34,6 +34,7 @@ def max_heapify(heap: typing.List[int], index: int, heap_size: int) -> None:
     assert index < len(heap)
     assert index >= 0
     assert heap_size >= 0
+    assert heap_size <= len(heap)
     ary = 2
     left_child_index = ith_child(index, ary, 0)
     right_child_index = ith_child(index, ary, 1)
