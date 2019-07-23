@@ -29,12 +29,21 @@ def max_heapify(heap: typing.List[int], index: int, heap_size: int) -> None:
     Modifies `heap` in place
 
     :param heap: A binary heap
-    :param index: 
+    :param index: the root of the sub-heap to max heapify
+    :param heap_size: the size of the heap within the array `heap`
     """
     assert index < len(heap)
     assert index >= 0
     assert heap_size >= 0
     assert heap_size <= len(heap)
-    ary = 2
-    left_child_index = ith_child(index, ary, 0)
-    right_child_index = ith_child(index, ary, 1)
+    largest = index
+    for i in range(2):
+        ith_index = ith_child(index, 2, i)
+        if ith_index < heap_size and heap[ith_index] > heap[largest]:
+            largest = ith_index
+
+    if largest != index:
+        temp = heap[index]
+        heap[index] = heap[largest]
+        heap[largest] = temp
+        max_heapify(heap, largest, heap_size)

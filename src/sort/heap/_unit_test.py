@@ -61,3 +61,9 @@ def test_max_heapify_heap_size_lt_0():
     assert_that(
         calling(main.max_heapify).with_args([MagicMock()], 0, 2), raises(AssertionError)
     )
+
+
+def test_max_heapify_works():
+    input_value = [27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0]
+    main.max_heapify(input_value, 3, len(input_value))
+    assert_that(input_value), equal_to([27, 17, 10, 16, 13, 9, 1, 5, 7, 12, 4, 8, 3, 0])
