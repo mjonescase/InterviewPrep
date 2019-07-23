@@ -1,7 +1,20 @@
+import math
 import sys
 import typing
 
 from ..selection.main import Number
+
+
+def sort(arr: typing.List[Number]) -> None:
+    merge_sort(arr, 0, len(arr) - 1)
+
+
+def merge_sort(arr: typing.List[Number], p: int, r: int) -> None:
+    if p < r:
+        q = math.floor((p + r) / 2)
+        merge_sort(arr, p, q)
+        merge_sort(arr, q + 1, r)
+        merge(arr, p, q, r)
 
 
 def merge(arr: typing.List[Number], p: int, q: int, r: int) -> None:
