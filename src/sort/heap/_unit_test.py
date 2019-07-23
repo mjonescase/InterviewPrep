@@ -76,3 +76,9 @@ def test_build_max_heap_works():
     input_value = [5, 3, 17, 10, 84, 19, 6, 22, 9]
     main.build_max_heap(input_value)
     assert_that(input_value, equal_to([84, 22, 19, 10, 3, 17, 6, 5, 9]))
+
+
+def test_heapsort_works():
+    input_value = [5, 3, 17, 10, 84, 19, 6, 22, 9]
+    main.sort(input_value)
+    assert_that(input_value, equal_to([3, 5, 6, 9, 10, 17, 19, 22, 84]))

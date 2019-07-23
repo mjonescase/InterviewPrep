@@ -57,3 +57,14 @@ def build_max_heap(arr: typing.List[int]) -> None:
         max_heapify(arr, i, len(arr))
         for i in range(max(math.floor(len(arr) / 2) - 1, 0), -1, -1)
     ]
+
+
+def sort(arr: typing.List[int]) -> None:
+    heap_size = len(arr)
+    build_max_heap(arr)
+    for i in range(len(arr) - 1, 0, -1):
+        temp = arr[0]
+        arr[0] = arr[i]
+        arr[i] = temp
+        heap_size -= 1
+        max_heapify(arr, 0, heap_size)
