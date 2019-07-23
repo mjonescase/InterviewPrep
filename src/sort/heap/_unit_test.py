@@ -88,3 +88,9 @@ def test_heapsort_empty_array():
     input_value = []
     main.sort(input_value)
     assert_that(input_value, equal_to([]))
+
+
+def test_heapsort_one_item():
+    input_value = [5]
+    main.sort(input_value)
+    assert_that(input_value, equal_to([5]))
