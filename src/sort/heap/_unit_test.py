@@ -48,3 +48,10 @@ def test_max_heapify_index_gte_heap_length():
 
 def test_max_heapify_index_lt_0():
     assert_that(calling(main.max_heapify).with_args([], -1, 0), raises(AssertionError))
+
+
+def test_max_heapify_heap_size_lt_0():
+    assert_that(
+        calling(main.max_heapify).with_args([MagicMock()], 0, -1),
+        raises(AssertionError),
+    )
