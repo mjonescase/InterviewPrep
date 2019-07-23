@@ -65,5 +65,14 @@ def test_max_heapify_heap_size_lt_0():
 
 def test_max_heapify_works():
     input_value = [27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0]
-    main.max_heapify(input_value, 3, len(input_value))
-    assert_that(input_value), equal_to([27, 17, 10, 16, 13, 9, 1, 5, 7, 12, 4, 8, 3, 0])
+    main.max_heapify(input_value, 2, len(input_value))
+    assert_that(input_value, equal_to([27, 17, 10, 16, 13, 9, 1, 5, 7, 12, 4, 8, 3, 0]))
+
+
+def test_build_max_heap_works():
+    """
+    CLRS exercise 6.3-1
+    """
+    input_value = [5, 3, 17, 10, 84, 19, 6, 22, 9]
+    main.build_max_heap(input_value)
+    assert_that(input_value, equal_to([84, 22, 19, 10, 3, 17, 6, 5, 9]))

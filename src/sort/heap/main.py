@@ -47,3 +47,13 @@ def max_heapify(heap: typing.List[int], index: int, heap_size: int) -> None:
         heap[index] = heap[largest]
         heap[largest] = temp
         max_heapify(heap, largest, heap_size)
+
+
+def build_max_heap(arr: typing.List[int]) -> None:
+    """
+    Max-heapifies `arr`.
+    """
+    [
+        max_heapify(arr, i, len(arr))
+        for i in range(max(math.floor(len(arr) / 2) - 1, 0), -1, -1)
+    ]
