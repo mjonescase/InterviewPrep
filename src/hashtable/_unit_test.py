@@ -1,5 +1,4 @@
-from hamcrest import (assert_that, calling, greater_than_or_equal_to,
-                      less_than, raises)
+from hamcrest import assert_that, calling, greater_than_or_equal_to, less_than, raises
 
 from .HashTable import HashTable
 
