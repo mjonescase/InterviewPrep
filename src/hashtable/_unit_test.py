@@ -1,9 +1,9 @@
-from hamcrest import assert_that, greater_than_or_equal_to, less_than
+from hamcrest import (assert_that, calling, greater_than_or_equal_to,
+                      less_than, raises)
 
 from .HashTable import HashTable
 
-table = HashTable(5)
 
-
-def test_hash_this_happy():
-    index = table.hash_this("a")
+def test_hash_none():
+    table = HashTable(5)
+    assert_that(calling(table.insert).with_args(None), raises(ValueError))
