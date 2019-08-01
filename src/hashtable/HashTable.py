@@ -57,6 +57,7 @@ class HashTable(object):
 
         for try_number in range(self.size):
             index = self._hash_this(val, try_number)
+            # TODO: what if `val` is already in the table?
             if self._table[index] is None:
                 self._table[index] = val
                 return index
