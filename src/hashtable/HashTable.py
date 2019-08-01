@@ -2,7 +2,6 @@ import typing
 
 from .HashTableFullException import HashTableFullException
 
-
 NONE_ERROR_MESSAGE = "Storing `None` is not supported by this hashtable implementation"
 
 
