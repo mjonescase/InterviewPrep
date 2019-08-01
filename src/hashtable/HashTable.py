@@ -1,6 +1,6 @@
 import typing
 
-NONE_ERROR_MESSAGE = "Storing `None` is not supported by this hashtable implementation")
+NONE_ERROR_MESSAGE = "Storing `None` is not supported by this hashtable implementation"
 
 
 class HashTable(object):
@@ -13,10 +13,13 @@ class HashTable(object):
 
     This implementation handles collisions using Open Addressing.
     """
+
     size: int
     _table: typing.List
+
     def __init__(self, size: int):
-        self._table = [ None for _ in range(size) ]
+        self.size = size
+        self._table = [None for _ in range(size)]
         self._num_elements = 0
 
     def _hash_this(self, val: typing.Hashable, try_number: int = 0) -> int:
@@ -38,7 +41,7 @@ class HashTable(object):
         To use quadratic probing or double hashing, i would need to introduce
         one or more "auxiliary" hash functions.
         """
-        return ( abs(hash(val)) + try_number ) % self.size
+        return (abs(hash(val)) + try_number) % self.size
 
     def insert(self, val: typing.Hashable) -> int:
         """
@@ -49,14 +52,16 @@ class HashTable(object):
         """
         if val is None:
             raise ValueError(NONE_ERROR_MESSAGE)
-        
+
         for try_number in range(self.size):
             index = self._hash_this(val, try_number)
             if self._table[index] is None:
                 self._table[index] = val
                 return index
         else:
-            raise OverflowError("This hashtable is already full. Item could not be inserted.")
+            raise OverflowError(
+                "This hashtable is already full. Item could not be inserted."
+            )
 
     def search(self, val: typing.Hashable) -> int:
         if val is None:
@@ -65,11 +70,6 @@ class HashTable(object):
         for try_number in range(self.size):
             index = self._hash_this(val, try_number)
             if self._table[index] == val:
-                return val
+                return index
         else:
             raise KeyError(str(val))
-                
-                
-            
-        
-        
