@@ -1,5 +1,7 @@
 import typing
 
+from .HashTableFullException import HashTableFullException
+
 NONE_ERROR_MESSAGE = "Storing `None` is not supported by this hashtable implementation"
 
 
@@ -57,13 +59,12 @@ class HashTable(object):
 
         for try_number in range(self.size):
             index = self._hash_this(val, try_number)
+            # TODO: what if `val` is already in the table?
             if self._table[index] is None:
                 self._table[index] = val
                 return index
         else:
-            raise OverflowError(
-                "This hashtable is already full. Item could not be inserted."
-            )
+            raise HashTableFullException()
 
     def search(self, val: typing.Hashable) -> int:
         if val is None:
