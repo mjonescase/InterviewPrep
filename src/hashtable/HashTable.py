@@ -14,6 +14,9 @@ class HashTable(object):
     `__hash__()`.
 
     This implementation handles collisions using Open Addressing.
+
+    It's based on The Hashtable implementation described in the
+    CLRS textbook in chapter 11.
     """
 
     size: int
@@ -21,8 +24,7 @@ class HashTable(object):
 
     def __init__(self, size: int):
         self.size = size
-        self._table = [None for _ in range(size)]
-        self._num_elements = 0
+        self._table = [None] * size
 
     def _hash_this(self, val: typing.Hashable, try_number: int = 0) -> int:
         """
