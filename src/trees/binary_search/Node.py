@@ -64,7 +64,7 @@ class Node(object):
 
         current = self
         parent = self.parent
-        while current == parent.left:
+        while parent is not None and current == parent.left:
             current = parent
             parent = parent.parent
 
