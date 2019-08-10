@@ -41,6 +41,13 @@ class Node(object):
 
         return self.left.minimum
 
+    @property
+    def successor(self) -> "Node":
+        """
+        Returns the node with the smallest key greater than `self.key`
+        """
+        raise NotImplementedError()
+
     def find_parent(self, root: "Node") -> "Node":
         """
         :param root: The node at the root of the tree

@@ -12,7 +12,12 @@ class BinarySearchTree(object):
     def __init__(self) -> "BinarySearchTree":
         self.root = None
 
-    def insert(self, key) -> None:
+    def insert(self, key: int) -> Node:
+        """
+        Creates a new `Node` with key `key`.
+        Inserts this node into this BST while maintaining
+        the BST property. Returns the newly inserted `Node`.
+        """
         node_to_insert = Node(key)
         node_to_insert.parent = node_to_insert.find_parent(self.root)
         if node_to_insert.parent is None:
@@ -21,6 +26,8 @@ class BinarySearchTree(object):
             node_to_insert.parent.left = node_to_insert
         else:
             node_to_insert.parent.right = node_to_insert
+
+        return node_to_insert
 
     def search(self, key: int) -> Node:
         if self.root is None:

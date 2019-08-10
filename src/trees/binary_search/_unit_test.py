@@ -81,3 +81,13 @@ def test_min_happy():
     tree.insert(3)
     tree.insert(7)
     assert_that(tree.minimum.key, equal_to(3))
+
+
+# SUCCESSOR
+def test_successor_right_child():
+    tree = BinarySearchTree.BinarySearchTree()
+    under_test = tree.insert(5)
+    _ = tree.insert(7)
+    successor = tree.insert(6)
+    _ = tree.insert(8)
+    assert_that(under_test.successor, equal_to(successor))
