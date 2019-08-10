@@ -40,3 +40,10 @@ def test_search_root_happy():
     tree = BinarySearchTree.BinarySearchTree()
     tree.insert(5)
     assert_that(tree.search(5), equal_to(tree.root))
+
+
+def xtest_search_root_left_child():
+    tree = BinarySearchTree.BinarySearchTree()
+    tree.insert(5)
+    tree.insert(3)
+    assert_that(tree.search(3), equal_to(tree.root.left))
