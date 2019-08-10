@@ -34,4 +34,7 @@ class BinarySearchTree(object):
             parent.right = node_to_insert
 
     def search(self, key: int) -> Node:
+        if self.root and self.root.key == key:
+            return self.root
+
         return None

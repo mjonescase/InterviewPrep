@@ -34,3 +34,9 @@ def test_insert_least_to_greatest():
 def test_search_empty_tree():
     tree = BinarySearchTree.BinarySearchTree()
     assert_that(tree.search(5), none())
+
+
+def test_search_root_happy():
+    tree = BinarySearchTree.BinarySearchTree()
+    tree.insert(5)
+    assert_that(tree.search(5), equal_to(tree.root))
