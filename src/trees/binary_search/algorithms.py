@@ -21,3 +21,19 @@ def find_parent(root: Node, node: Node) -> Node:
             insert_point = insert_point.right
 
     return parent
+
+
+def search(node: Node, key: int) -> Node:
+    """
+    :param node: Node at the root of the tree to be searched.
+    :param key: Value for which the matching node's `key` attribute must match.
+    
+    Returns the first encountered matching node, or `None` if none exists.
+    """
+    if node is None or node.key == key:
+        return node
+
+    if key < node.key:
+        return search(node.left, key)
+
+    return search(node.right, key)

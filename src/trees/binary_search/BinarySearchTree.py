@@ -1,4 +1,5 @@
 from .algorithms import find_parent
+from .algorithms import search as recursive_search
 from .Node import Node
 
 
@@ -24,13 +25,4 @@ class BinarySearchTree(object):
             node_to_insert.parent.right = node_to_insert
 
     def search(self, key: int) -> Node:
-        return self._search(self.root, key)
-
-    def _search(self, node: Node, key: int) -> Node:
-        if node is None or node.key == key:
-            return node
-
-        if key < node.key:
-            return self._search(node.left, key)
-
-        return self._search(node.right, key)
+        return recursive_search(self.root, key)
