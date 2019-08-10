@@ -13,9 +13,21 @@ class BinarySearchTree(object):
         self.root = Node(key=root_key)
 
     def insert(self, key) -> None:
-        if key < self.root.key:
-            self.root.left = Node(key=key, parent=self.root)
+        node_to_insert = Node(key)
+        parent = None
+        insert_point = self.root
+        while insert_point:
+            parent = insert_point
+            if key < insert_point.key:
+                # Per the convention in CLRS chapter 12.3,
+                # right wins in a tie (keys are equal)
+                insert_point = insert_point.left
+            else:
+                insert_point = insert_point.right
+
+        node_to_insert.parent = parent
+
+        if node_to_insert.key < parent.key:
+            parent.left = node_to_insert
         else:
-            # Per the convention in CLRS chapter 12.3,
-            # right wins in a tie (keys are equal)
-            self.root.right = Node(key=key, parent=self.root)
+            parent.right = node_to_insert
