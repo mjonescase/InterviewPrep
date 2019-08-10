@@ -68,3 +68,8 @@ def test_max_happy():
     tree.insert(3)
     tree.insert(7)
     assert_that(tree.maximum.key, equal_to(7))
+
+
+def test_min_empty():
+    tree = BinarySearchTree.BinarySearchTree()
+    assert_that(tree.minimum, none())

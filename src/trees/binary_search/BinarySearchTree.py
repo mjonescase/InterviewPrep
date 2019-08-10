@@ -32,3 +32,10 @@ class BinarySearchTree(object):
             return None
 
         return algorithms.maximum(self.root)
+
+    @property
+    def minimum(self) -> Node:
+        if self.root is None:
+            return None
+
+        raise NotImplementedError()
