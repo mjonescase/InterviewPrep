@@ -62,6 +62,14 @@ class Node(object):
         if self.left is not None:
             return self.left.maximum
 
+        current = self
+        parent = self.parent
+        while current == parent.left:
+            current = parent
+            parent = parent.parent
+
+        return parent
+
     def find_parent(self, root: "Node") -> "Node":
         """
         :param root: The node at the root of the tree

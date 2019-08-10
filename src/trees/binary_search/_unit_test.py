@@ -120,3 +120,16 @@ def test_predecessor_left_child():
     predecessor = tree.insert(4)
     _ = tree.insert(3)
     assert_that(under_test.predecessor, equal_to(predecessor))
+
+
+def test_predecessor_no_left_child():
+    tree = BinarySearchTree.BinarySearchTree()
+    _ = tree.insert(8)
+    _ = tree.insert(5)
+    _ = tree.insert(11)
+    _ = tree.insert(9)
+    predecessor = tree.insert(15)
+    _ = tree.insert(14)
+    _ = tree.insert(13)
+    under_test = tree.insert(17)
+    assert_that(under_test.predecessor, equal_to(predecessor))
