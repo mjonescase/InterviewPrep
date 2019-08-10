@@ -1,3 +1,4 @@
+from .algorithms import find_parent
 from .Node import Node
 
 
@@ -14,24 +15,13 @@ class BinarySearchTree(object):
 
     def insert(self, key) -> None:
         node_to_insert = Node(key)
-        parent = None
-        insert_point = self.root
-        while insert_point:
-            parent = insert_point
-            if key < insert_point.key:
-                # Per the convention in CLRS chapter 12.3,
-                # right wins in a tie (keys are equal)
-                insert_point = insert_point.left
-            else:
-                insert_point = insert_point.right
-
-        node_to_insert.parent = parent
-        if parent is None:
+        node_to_insert.parent = find_parent(self.root, node_to_insert)
+        if node_to_insert.parent is None:
             self.root = node_to_insert
-        elif node_to_insert.key < parent.key:
-            parent.left = node_to_insert
+        elif node_to_insert.key < node_to_insert.parent.key:
+            node_to_insert.parent.left = node_to_insert
         else:
-            parent.right = node_to_insert
+            node_to_insert.parent.right = node_to_insert
 
     def search(self, key: int) -> Node:
         return self._search(self.root, key)
