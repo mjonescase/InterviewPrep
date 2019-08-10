@@ -38,4 +38,4 @@ class BinarySearchTree(object):
         if self.root is None:
             return None
 
-        raise NotImplementedError()
+        return algorithms.minimum(self.root)

@@ -49,3 +49,15 @@ def maximum(node: Node) -> Node:
         node = node.right
 
     return node
+
+
+def minimum(node: Node) -> Node:
+    """
+    :param node: Node at the root of the tree to be searched.
+
+    Returns the Node in the tree containing the minimum key.
+    """
+    while node.left is not None:
+        node = node.left
+
+    return node
