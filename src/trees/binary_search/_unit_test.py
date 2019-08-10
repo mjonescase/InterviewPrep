@@ -101,3 +101,13 @@ def test_successor_non_root_no_right_child():
     under_test = tree.insert(12)
     _ = tree.insert(18)
     assert_that(under_test.successor, equal_to(successor))
+
+
+def test_successor_largest_node():
+    tree = BinarySearchTree.BinarySearchTree()
+    _ = tree.insert(10)
+    _ = tree.insert(6)
+    _ = tree.insert(14)
+    _ = tree.insert(12)
+    under_test = tree.insert(18)
+    assert_that(under_test.successor, none())
