@@ -37,3 +37,15 @@ def search(node: Node, key: int) -> Node:
         return search(node.left, key)
 
     return search(node.right, key)
+
+
+def maximum(node: Node) -> Node:
+    """
+    :param node: Node at the root of the tree to be searched.
+
+    Returns the Node in the tree containing the maximum key.
+    """
+    while node.right is not None:
+        node = node.right
+
+    return node

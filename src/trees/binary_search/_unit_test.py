@@ -60,3 +60,11 @@ def test_search_root_right_child():
 def test_max_empty():
     tree = BinarySearchTree.BinarySearchTree()
     assert_that(tree.maximum, none())
+
+
+def test_max_happy():
+    tree = BinarySearchTree.BinarySearchTree()
+    tree.insert(5)
+    tree.insert(3)
+    tree.insert(7)
+    assert_that(tree.maximum.key, equal_to(7))

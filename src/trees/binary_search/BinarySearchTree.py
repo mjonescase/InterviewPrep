@@ -1,5 +1,4 @@
-from .algorithms import find_parent
-from .algorithms import search as recursive_search
+from . import algorithms
 from .Node import Node
 
 
@@ -16,7 +15,7 @@ class BinarySearchTree(object):
 
     def insert(self, key) -> None:
         node_to_insert = Node(key)
-        node_to_insert.parent = find_parent(self.root, node_to_insert)
+        node_to_insert.parent = algorithms.find_parent(self.root, node_to_insert)
         if node_to_insert.parent is None:
             self.root = node_to_insert
         elif node_to_insert.key < node_to_insert.parent.key:
@@ -25,11 +24,11 @@ class BinarySearchTree(object):
             node_to_insert.parent.right = node_to_insert
 
     def search(self, key: int) -> Node:
-        return recursive_search(self.root, key)
+        return algorithms.search(self.root, key)
 
     @property
     def maximum(self) -> Node:
         if self.root is None:
             return None
 
-        raise NotImplementedError()
+        return algorithms.maximum(self.root)
