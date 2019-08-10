@@ -1,4 +1,3 @@
-from . import algorithms
 from .Node import Node
 
 
@@ -15,7 +14,7 @@ class BinarySearchTree(object):
 
     def insert(self, key) -> None:
         node_to_insert = Node(key)
-        node_to_insert.parent = algorithms.find_parent(self.root, node_to_insert)
+        node_to_insert.parent = node_to_insert.find_parent(self.root)
         if node_to_insert.parent is None:
             self.root = node_to_insert
         elif node_to_insert.key < node_to_insert.parent.key:
@@ -24,18 +23,21 @@ class BinarySearchTree(object):
             node_to_insert.parent.right = node_to_insert
 
     def search(self, key: int) -> Node:
-        return algorithms.search(self.root, key)
+        if self.root is None:
+            return self.root
+
+        return self.root.search(key)
 
     @property
     def maximum(self) -> Node:
         if self.root is None:
             return None
 
-        return algorithms.maximum(self.root)
+        return self.root.maximum
 
     @property
     def minimum(self) -> Node:
         if self.root is None:
             return None
 
-        return algorithms.minimum(self.root)
+        return self.root.minimum
