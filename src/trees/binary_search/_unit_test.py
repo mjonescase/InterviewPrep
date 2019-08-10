@@ -91,3 +91,13 @@ def test_successor_right_child():
     successor = tree.insert(6)
     _ = tree.insert(8)
     assert_that(under_test.successor, equal_to(successor))
+
+
+def test_successor_non_root_no_right_child():
+    tree = BinarySearchTree.BinarySearchTree()
+    _ = tree.insert(10)
+    _ = tree.insert(6)
+    successor = tree.insert(14)
+    under_test = tree.insert(12)
+    _ = tree.insert(18)
+    assert_that(under_test.successor, equal_to(successor))

@@ -49,6 +49,14 @@ class Node(object):
         if self.right is not None:
             return self.right.minimum
 
+        current = self
+        parent = self.parent
+        while parent is not None and current == parent.right:
+            current = parent
+            parent = parent.parent
+
+        return parent
+
     def find_parent(self, root: "Node") -> "Node":
         """
         :param root: The node at the root of the tree
