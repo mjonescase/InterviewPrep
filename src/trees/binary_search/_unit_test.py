@@ -3,6 +3,7 @@ from hamcrest import assert_that, equal_to, none
 from . import BinarySearchTree
 
 
+# INSERT
 def test_insert_left_happy():
     tree = BinarySearchTree.BinarySearchTree()
     tree.insert(5)
@@ -27,3 +28,9 @@ def test_insert_least_to_greatest():
     assert_that(tree.root.left, none())
     assert_that(tree.root.right.key, equal_to(7))
     assert_that(tree.root.right.right.key, equal_to(9))
+
+
+# SEARCH
+def test_search_empty_tree():
+    tree = BinarySearchTree.BinarySearchTree()
+    assert_that(tree.search(5), none())

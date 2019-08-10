@@ -32,3 +32,6 @@ class BinarySearchTree(object):
             parent.left = node_to_insert
         else:
             parent.right = node_to_insert
+
+    def search(self, key: int) -> Node:
+        return None
