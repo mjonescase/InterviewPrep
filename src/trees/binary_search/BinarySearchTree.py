@@ -26,3 +26,10 @@ class BinarySearchTree(object):
 
     def search(self, key: int) -> Node:
         return recursive_search(self.root, key)
+
+    @property
+    def maximum(self) -> Node:
+        if self.root is None:
+            return None
+
+        raise NotImplementedError()

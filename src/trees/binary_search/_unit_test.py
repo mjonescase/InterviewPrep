@@ -54,3 +54,9 @@ def test_search_root_right_child():
     tree.insert(5)
     tree.insert(7)
     assert_that(tree.search(7), equal_to(tree.root.right))
+
+
+# MIN AND MAX
+def test_max_empty():
+    tree = BinarySearchTree.BinarySearchTree()
+    assert_that(tree.maximum, none())
