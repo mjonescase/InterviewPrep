@@ -57,6 +57,11 @@ class Node(object):
 
         return parent
 
+    @property
+    def predecessor(self) -> "Node":
+        if self.left is not None:
+            return self.left.maximum
+
     def find_parent(self, root: "Node") -> "Node":
         """
         :param root: The node at the root of the tree

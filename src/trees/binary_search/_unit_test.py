@@ -111,3 +111,12 @@ def test_successor_largest_node():
     _ = tree.insert(12)
     under_test = tree.insert(18)
     assert_that(under_test.successor, none())
+
+
+# PREDECESSOR
+def test_predecessor_left_child():
+    tree = BinarySearchTree.BinarySearchTree()
+    under_test = tree.insert(5)
+    predecessor = tree.insert(4)
+    _ = tree.insert(3)
+    assert_that(under_test.predecessor, equal_to(predecessor))
