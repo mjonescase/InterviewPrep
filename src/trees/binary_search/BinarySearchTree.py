@@ -9,8 +9,8 @@ class BinarySearchTree(object):
 
     root: Node
 
-    def __init__(self, root_key: int) -> "BinarySearchTree":
-        self.root = Node(key=root_key)
+    def __init__(self) -> "BinarySearchTree":
+        self.root = None
 
     def insert(self, key) -> None:
         node_to_insert = Node(key)
@@ -26,8 +26,9 @@ class BinarySearchTree(object):
                 insert_point = insert_point.right
 
         node_to_insert.parent = parent
-
-        if node_to_insert.key < parent.key:
+        if parent is None:
+            self.root = node_to_insert
+        elif node_to_insert.key < parent.key:
             parent.left = node_to_insert
         else:
             parent.right = node_to_insert
