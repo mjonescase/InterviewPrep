@@ -46,7 +46,8 @@ class Node(object):
         """
         Returns the node with the smallest key greater than `self.key`
         """
-        raise NotImplementedError()
+        if self.right is not None:
+            return self.right.minimum
 
     def find_parent(self, root: "Node") -> "Node":
         """
