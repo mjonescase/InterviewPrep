@@ -47,3 +47,10 @@ def test_search_root_left_child():
     tree.insert(5)
     tree.insert(3)
     assert_that(tree.search(3), equal_to(tree.root.left))
+
+
+def test_search_root_right_child():
+    tree = BinarySearchTree.BinarySearchTree()
+    tree.insert(5)
+    tree.insert(7)
+    assert_that(tree.search(7), equal_to(tree.root.right))

@@ -43,4 +43,4 @@ class BinarySearchTree(object):
         if key < node.key:
             return self._search(node.left, key)
 
-        return None
+        return self._search(node.right, key)
