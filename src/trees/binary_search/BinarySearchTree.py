@@ -7,6 +7,7 @@ class BinarySearchTree(object):
     keys are integers.
     """
 
+    NIL_NODE = None
     root: Node
 
     def __init__(self) -> "BinarySearchTree":
@@ -20,7 +21,7 @@ class BinarySearchTree(object):
         """
         node_to_insert = Node(key)
         node_to_insert.parent = node_to_insert.find_parent(self.root)
-        if node_to_insert.parent is None:
+        if node_to_insert.parent is self.NIL_NODE:
             self.root = node_to_insert
         elif node_to_insert.key < node_to_insert.parent.key:
             node_to_insert.parent.left = node_to_insert
@@ -62,9 +63,9 @@ class BinarySearchTree(object):
             old_node.transplant(new_node)
 
     def delete(self, node: Node) -> None:
-        if node.left is None:
+        if node.left is self.NIL_NODE:
             self.transplant(node, node.right)
-        elif node.right is None:
+        elif node.right is self.NIL_NODE:
             self.transplant(node, node.left)
         else:
             successor = node.right.minimum
