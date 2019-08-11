@@ -54,3 +54,9 @@ class RedBlackTree(BinarySearchTree):
 
         node.parent = left_child
         left_child.right = node
+
+    # def insert(self, key: int) -> RedBlackNode:
+    #     return self.insert_fixup(super().insert(key))
+
+    def insert_fixup(self, node: RedBlackNode) -> RedBlackNode:
+        raise NotImplementedError()

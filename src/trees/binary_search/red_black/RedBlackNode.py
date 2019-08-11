@@ -32,3 +32,15 @@ class RedBlackNode(Node):
         self.parent = parent if parent is not None else self.NIL_NODE
         self.left = left if left is not None else self.NIL_NODE
         self.right = right if right is not None else self.NIL_NODE
+
+    @property
+    def uncle(self) -> "RedBlackNode":
+        """
+        Returns my parent's parent's child that is not my parent.
+        """
+        return self.NIL_NODE
+        # grandparent = self.parent.parent
+        # if self.parent is self.parent.parent.right:
+        #     return self.parent.parent.left
+
+        # return self.parent.parent.right
