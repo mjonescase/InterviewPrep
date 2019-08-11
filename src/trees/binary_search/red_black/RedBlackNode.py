@@ -38,9 +38,8 @@ class RedBlackNode(Node):
         """
         Returns my parent's parent's child that is not my parent.
         """
-        return self.NIL_NODE
-        # grandparent = self.parent.parent
-        # if self.parent is self.parent.parent.right:
-        #     return self.parent.parent.left
+        grandparent = self.parent.parent
+        if self.parent is self.parent.parent.right:
+            return self.parent.parent.left
 
-        # return self.parent.parent.right
+        return self.NIL_NODE

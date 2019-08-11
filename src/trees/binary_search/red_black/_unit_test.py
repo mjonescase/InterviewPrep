@@ -103,7 +103,18 @@ def test_right_rotate_tree_root():
     assert_that(old_left.parent, equal_to(NIL_NODE))
 
 
+# UNCLE
 def test_uncle_root():
     tree = RedBlackTree()
     _ = tree.insert(5)
     assert_that(tree.root.uncle, equal_to(NIL_NODE))
+
+
+def test_uncle_left():
+    tree = RedBlackTree()
+    _ = tree.insert(5)
+    uncle = tree.insert(3)
+    _ = tree.insert(7)
+    node = tree.insert(6)
+    _ = tree.insert(8)
+    assert_that(node.uncle, equal_to(uncle))
