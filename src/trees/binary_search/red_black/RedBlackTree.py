@@ -27,9 +27,9 @@ class RedBlackTree(BinarySearchTree):
             right_child.left.parent = node
 
         right_child.parent = node.parent
-        # TODO if node.parent is self.NIL_NODE,
-        # right_child is the root of the tree now.
-        if node.parent.left is node:
+        if node.parent is self.NIL_NODE:
+            self.root = right_child
+        elif node.parent.left is node:
             node.parent.left = right_child
         else:
             node.parent.right = right_child
