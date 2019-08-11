@@ -7,12 +7,14 @@ class BinarySearchTree(object):
     keys are integers.
     """
 
-    NODE_CLASS = Node
     NIL_NODE = None
     root: Node
 
     def __init__(self) -> "BinarySearchTree":
         self.root = None
+
+    def _create_node(self, key: int) -> Node:
+        return Node(key)
 
     def insert(self, key: int) -> Node:
         """
@@ -20,7 +22,7 @@ class BinarySearchTree(object):
         Inserts this node into this BST while maintaining
         the BST property. Returns the newly inserted `Node`.
         """
-        node_to_insert = self.NODE_CLASS(key)
+        node_to_insert = self._create_node(key)
         node_to_insert.parent = node_to_insert.find_parent(self.root)
         if node_to_insert.parent is self.NIL_NODE:
             self.root = node_to_insert
