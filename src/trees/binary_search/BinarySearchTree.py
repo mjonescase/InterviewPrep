@@ -65,3 +65,5 @@ class BinarySearchTree(object):
     def delete(self, node: Node) -> None:
         if node.left is None:
             self.transplant(node, node.right)
+        elif node.right is None:
+            self.transplant(node, node.left)

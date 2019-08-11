@@ -187,7 +187,7 @@ def test_delete_no_children():
     assert_that(delete_me.parent, none())
 
 
-def xtest_delete_left_child_only():
+def test_delete_left_child_only():
     tree = BinarySearchTree.BinarySearchTree()
     _ = tree.insert(5)
     delete_me = tree.insert(8)
