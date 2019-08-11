@@ -197,3 +197,20 @@ def test_delete_left_child_only():
     assert_that(tree.root.right, equal_to(replacement))
     assert_that(replacement.parent, equal_to(tree.root))
     assert_that(delete_me.parent, none())
+
+
+def test_delete_both_children_successor_direct():
+    tree = BinarySearchTree.BinarySearchTree()
+    _ = tree.insert(8)
+    _ = tree.insert(6)
+    delete_me = tree.insert(18)
+    old_left = tree.insert(9)
+    replacement = tree.insert(22)
+    replacement_right = tree.insert(24)
+    tree.delete(delete_me)
+    assert_that(tree.root.right, equal_to(replacement))
+    assert_that(replacement.parent, equal_to(tree.root))
+    assert_that(replacement.left, equal_to(old_left))
+    assert_that(old_left.parent, equal_to(replacement))
+    assert_that(replacement.right, equal_to(replacement_right))
+    assert_that(replacement_right.parent, equal_to(replacement))

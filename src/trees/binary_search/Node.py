@@ -109,7 +109,6 @@ class Node(object):
 
     def transplant(self, new_node: "Node") -> None:
         """
-        Have this node's parent refer to its left child.
         """
         if self == self.parent.left:
             self.parent.left = new_node
