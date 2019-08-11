@@ -166,3 +166,4 @@ def test_transplant_other():
     new_node = Node(6)
     tree.transplant(transplant_me, new_node)
     assert_that(tree.root.right, equal_to(new_node))
+    assert_that(new_node.parent, equal_to(tree.root))

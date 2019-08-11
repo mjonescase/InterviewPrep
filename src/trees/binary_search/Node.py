@@ -116,4 +116,5 @@ class Node(object):
         else:
             self.parent.right = new_node
 
-        # TODO set new_node.parent equal to old_node.parent
+        new_node.parent = self.parent
+        self.parent = None
