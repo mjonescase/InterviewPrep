@@ -118,3 +118,13 @@ def test_uncle_left():
     node = tree.insert(6)
     _ = tree.insert(8)
     assert_that(node.uncle, equal_to(uncle))
+
+
+def test_uncle_right():
+    tree = RedBlackTree()
+    _ = tree.insert(5)
+    _ = tree.insert(3)
+    uncle = tree.insert(7)
+    node = tree.insert(4)
+    _ = tree.insert(2)
+    assert_that(node.uncle, equal_to(uncle))

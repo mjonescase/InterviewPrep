@@ -42,4 +42,4 @@ class RedBlackNode(Node):
         if self.parent is self.parent.parent.right:
             return self.parent.parent.left
 
-        return self.NIL_NODE
+        return self.parent.parent.right
