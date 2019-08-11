@@ -167,3 +167,12 @@ def test_transplant_other():
     tree.transplant(transplant_me, new_node)
     assert_that(tree.root.right, equal_to(new_node))
     assert_that(new_node.parent, equal_to(tree.root))
+
+
+def test_transplant_none():
+    tree = BinarySearchTree.BinarySearchTree()
+    _ = tree.insert(5)
+    transplant_me = tree.insert(7)
+    _ = tree.insert(3)
+    tree.transplant(transplant_me, None)
+    assert_that(tree.root.right, equal_to(None))

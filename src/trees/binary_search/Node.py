@@ -116,5 +116,7 @@ class Node(object):
         else:
             self.parent.right = new_node
 
-        new_node.parent = self.parent
+        if new_node is not None:
+            new_node.parent = self.parent
+
         self.parent = None
