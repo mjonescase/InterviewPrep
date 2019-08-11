@@ -107,8 +107,13 @@ class Node(object):
 
         return None
 
-    def transplant(self) -> None:
+    def transplant(self, new_node: "Node") -> None:
         """
         Have this node's parent refer to its left child.
         """
-        raise NotImplementedError()
+        if self == self.parent.left:
+            self.parent.left = new_node
+        else:
+            self.parent.right = new_node
+
+        # TODO set new_node.parent equal to old_node.parent

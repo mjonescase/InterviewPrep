@@ -58,3 +58,6 @@ class BinarySearchTree(object):
         """
         if old_node == self.root:
             self.root = new_node
+
+        else:
+            old_node.transplant(new_node)
