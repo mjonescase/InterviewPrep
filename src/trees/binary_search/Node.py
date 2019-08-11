@@ -106,3 +106,9 @@ class Node(object):
             return self.right.search(key)
 
         return None
+
+    def transplant(self) -> None:
+        """
+        Have this node's parent refer to its left child.
+        """
+        raise NotImplementedError()

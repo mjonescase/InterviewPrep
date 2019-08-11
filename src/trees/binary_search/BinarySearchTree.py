@@ -48,3 +48,13 @@ class BinarySearchTree(object):
             return None
 
         return self.root.minimum
+
+    def transplant(self, old_node: Node, new_node: Node) -> None:
+        """
+        Replace `old_node` with `new_node`.
+        `new_node` will now refer to `old_node`'s parent as its
+        parent, and will take whichever of the parent's child slots
+        that `old_node` occupied, either left or right.
+        """
+        if old_node == self.root:
+            self.root = new_node

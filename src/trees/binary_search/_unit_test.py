@@ -1,6 +1,7 @@
 from hamcrest import assert_that, equal_to, none
 
 from . import BinarySearchTree
+from .Node import Node
 
 
 # INSERT
@@ -146,3 +147,12 @@ def test_predecessor_smallest_node():
     _ = tree.insert(13)
     _ = tree.insert(17)
     assert_that(under_test.predecessor, none())
+
+
+# TRANSPLANT
+def test_transplant_root():
+    tree = BinarySearchTree.BinarySearchTree()
+    tree.insert(5)
+    new_node = Node(6)
+    tree.transplant(tree.root, new_node)
+    assert_that(tree.root, equal_to(new_node))
