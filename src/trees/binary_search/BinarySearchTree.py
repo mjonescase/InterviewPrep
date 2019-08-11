@@ -61,3 +61,7 @@ class BinarySearchTree(object):
 
         else:
             old_node.transplant(new_node)
+
+    def delete(self, node: Node) -> None:
+        if node.left is None:
+            self.transplant(node, node.right)

@@ -176,3 +176,24 @@ def test_transplant_none():
     _ = tree.insert(3)
     tree.transplant(transplant_me, None)
     assert_that(tree.root.right, equal_to(None))
+
+
+def test_delete_no_children():
+    tree = BinarySearchTree.BinarySearchTree()
+    _ = tree.insert(5)
+    delete_me = tree.insert(3)
+    tree.delete(delete_me)
+    assert_that(tree.root.left, none())
+    assert_that(delete_me.parent, none())
+
+
+def xtest_delete_left_child_only():
+    tree = BinarySearchTree.BinarySearchTree()
+    _ = tree.insert(5)
+    delete_me = tree.insert(8)
+    _ = tree.insert(4)
+    replacement = tree.insert(7)
+    tree.delete(delete_me)
+    assert_that(tree.root.right, equal_to(replacement))
+    assert_that(replacement.parent, equal_to(tree.root))
+    assert_that(delete_me.parent, none())
