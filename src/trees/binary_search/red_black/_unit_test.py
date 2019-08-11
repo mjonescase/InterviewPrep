@@ -79,7 +79,7 @@ def test_right_rotate_both_children_populated():
     assert_that(old_left.parent, equal_to(tree.root))
 
 
-def test_left_rotate_tree_root():
+def test_right_rotate_tree_root():
     # set up
     tree = RedBlackTree()
     right_rotate_me = tree.insert(5)
