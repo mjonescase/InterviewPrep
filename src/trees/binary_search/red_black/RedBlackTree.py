@@ -36,3 +36,21 @@ class RedBlackTree(BinarySearchTree):
 
         node.parent = right_child
         right_child.left = node
+
+    def right_rotate(self, node: RedBlackNode) -> None:
+        left_child = node.left
+        # turn left child's right subtree into node's left subtree
+        node.left = left_child.right
+        if left_child.right != self.NIL_NODE:
+            left_child.right.parent = node
+
+        left_child.parent = node.parent
+        # if node.parent is self.NIL_NODE:
+        #     self.root = right_child
+        if node.parent.left is node:
+            node.parent.left = left_child
+        else:
+            node.parent.right = left_child
+
+        node.parent = left_child
+        left_child.right = node
