@@ -88,7 +88,7 @@ class Node(object):
             else:
                 insert_point = insert_point.right
 
-        return parent
+        return parent if parent is not None else self.NIL_NODE
 
     def search(self, key: int) -> "Node":
         """
