@@ -68,7 +68,11 @@ class BinarySearchTree(object):
             self.transplant(node, node.left)
         else:
             successor = node.right.minimum
-            # if successor.parent != node:
+            if successor.parent != node:
+                successor.transplant(successor.right)
+                successor.right = node.right
+                successor.right.parent = successor
+
             node.transplant(successor)
             successor.left = node.left
             successor.left.parent = successor

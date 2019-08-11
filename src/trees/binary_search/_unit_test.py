@@ -214,3 +214,23 @@ def test_delete_both_children_successor_direct():
     assert_that(old_left.parent, equal_to(replacement))
     assert_that(replacement.right, equal_to(replacement_right))
     assert_that(replacement_right.parent, equal_to(replacement))
+
+
+def test_delete_both_children_successor_indirect():
+    tree = BinarySearchTree.BinarySearchTree()
+    _ = tree.insert(8)
+    _ = tree.insert(6)
+    delete_me = tree.insert(18)
+    old_left = tree.insert(9)
+    old_right = tree.insert(25)
+    replacement = tree.insert(21)
+    replacement_right = tree.insert(23)
+    tree.delete(delete_me)
+    assert_that(tree.root.right, equal_to(replacement))
+    assert_that(replacement.parent, equal_to(tree.root))
+    assert_that(replacement.left, equal_to(old_left))
+    assert_that(old_left.parent, equal_to(replacement))
+    assert_that(replacement.right, equal_to(old_right))
+    assert_that(old_right.parent, equal_to(replacement))
+    assert_that(old_right.left, equal_to(replacement_right))
+    assert_that(replacement_right.parent, equal_to(old_right))
