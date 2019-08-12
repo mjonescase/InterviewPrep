@@ -59,4 +59,12 @@ class RedBlackTree(BinarySearchTree):
     #     return self.insert_fixup(super().insert(key))
 
     def insert_fixup(self, node: RedBlackNode) -> RedBlackNode:
-        raise NotImplementedError()
+        current = node
+        while current.parent.color == Color.RED:
+            if current.uncle.color == Color.RED:
+                current.parent.color = Color.BLACK
+                current.uncle.color = Color.BLACK
+                current.parent.parent.color = Color.RED
+                current = current.parent.parent
+
+        return node

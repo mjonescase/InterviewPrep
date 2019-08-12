@@ -1,5 +1,6 @@
 from hamcrest import assert_that, equal_to
 
+from .Color import Color
 from .NilNode import NIL_NODE
 from .RedBlackNode import RedBlackNode
 from .RedBlackTree import RedBlackTree
@@ -128,3 +129,27 @@ def test_uncle_right():
     node = tree.insert(4)
     _ = tree.insert(2)
     assert_that(node.uncle, equal_to(uncle))
+
+
+def test_insert_fixup_both_case_1():
+    """
+    Case in which the node's uncle is red.
+    Whether the uncle is the right or left child of
+    node's grandparent is irrelevant for case 1.
+    """
+    # setup
+    tree = RedBlackTree()
+    make_black_a = tree.insert(5)
+    uncle = tree.insert(3)
+    parent = tree.insert(7)
+    node = tree.insert(6)
+    make_black_a.color = Color.BLACK
+
+    # run
+    tree.insert_fixup(node)
+
+    # assert
+    assert_that(parent.color, equal_to(Color.BLACK))
+    assert_that(uncle.color, equal_to(Color.BLACK))
+    assert_that(node.color, equal_to(Color.RED))
+    # assert_that(tree.root.color, equal_to(Color.BLACK))
