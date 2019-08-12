@@ -152,4 +152,4 @@ def test_insert_fixup_both_case_1():
     assert_that(parent.color, equal_to(Color.BLACK))
     assert_that(uncle.color, equal_to(Color.BLACK))
     assert_that(node.color, equal_to(Color.RED))
-    # assert_that(tree.root.color, equal_to(Color.BLACK))
+    assert_that(tree.root.color, equal_to(Color.BLACK))

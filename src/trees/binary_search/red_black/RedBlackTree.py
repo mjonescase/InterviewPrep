@@ -67,4 +67,5 @@ class RedBlackTree(BinarySearchTree):
                 current.parent.parent.color = Color.RED
                 current = current.parent.parent
 
+        self.root.color = Color.BLACK
         return node
